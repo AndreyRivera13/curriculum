@@ -15,18 +15,34 @@ export const site = {
   pdf: { es: 'Brayam-Oliveros-CV-es.pdf', en: 'Brayam-Oliveros-CV-en.pdf' },
 };
 
-// Eje del trace: de enero de 2017 a enero de 2028.
-export const axis = { from: 2017, to: 2028 };
-
-// kind: work | study | free. end: null = sigue en curso.
-export const spans = [
-  { id: 'tec',  kind: 'study', start: '2017-01-16', end: '2017-12-15', es: ['Técnico en mantenimiento de equipos de cómputo', 'SENA'], en: ['Computer equipment maintenance technician', 'SENA'], dates: { es: '2017', en: '2017' } },
-  { id: 'ing',  kind: 'study', start: '2018-01-22', end: '2026-10-08', es: ['Ingeniería de Sistemas', 'Universidad Francisco de Paula Santander'], en: ['Systems Engineering', 'Francisco de Paula Santander University'], dates: { es: '2018 a oct 2026', en: '2018 to Oct 2026' } },
-  { id: 'free', kind: 'free',  start: '2019-12-01', end: '2021-12-31', es: ['Desarrollador freelance', 'Cinco sistemas completos'], en: ['Freelance developer', 'Five complete systems'], dates: { es: 'dic 2019 a dic 2021', en: 'Dec 2019 to Dec 2021' } },
-  { id: 'tecn', kind: 'study', start: '2021-02-01', end: '2023-12-15', es: ['Tecnólogo en análisis y desarrollo de sistemas de información', 'SENA'], en: ['Technologist in information systems analysis and development', 'SENA'], dates: { es: '2021 a 2023', en: '2021 to 2023' } },
-  { id: 'pra',  kind: 'work',  start: '2022-09-19', end: '2026-11-09', es: ['Pragma S.A.', 'Desarrollador backend Java'], en: ['Pragma S.A.', 'Java backend developer'], dates: { es: 'sep 2022 a nov 2026', en: 'Sep 2022 to Nov 2026' } },
-  { id: 'bd',   kind: 'study', start: '2026-04-14', end: null,         es: ['Tecnología en implementación y gestión de bases de datos', 'SENA'], en: ['Technology in database implementation and management', 'SENA'], dates: { es: 'desde abr 2026', en: 'since Apr 2026' } },
-  { id: 'ban',  kind: 'work',  start: '2026-11-24', end: null,         es: ['Bancolombia', 'Ingeniero de software'], en: ['Bancolombia', 'Software engineer'], dates: { es: 'desde nov 2026', en: 'since Nov 2026' } },
+// Niveles del mapa, en orden cronológico. kind: work | study | free.
+// start (AAAA-MM-DD) se usa para decidir si el último nivel dice "Próximo" o "Actual".
+export const quests = [
+  { id: 'tec', kind: 'study', start: '2017-01-16',
+    es: { short: 'Técnico en cómputo', name: 'Técnico en mantenimiento de equipos de cómputo', org: 'SENA', dates: '2017', body: 'El punto de partida: formación técnica en el SENA.', loot: ['Técnico SENA'] },
+    en: { short: 'Computer technician', name: 'Computer equipment maintenance technician', org: 'SENA', dates: '2017', body: 'The starting point: technical training at SENA.', loot: ['SENA technician'] } },
+  { id: 'ing', kind: 'study', start: '2018-01-22',
+    es: { short: 'Ingeniería de Sistemas', name: 'Ingeniería de Sistemas', org: 'Universidad Francisco de Paula Santander', dates: '2018 a oct 2026', body: 'La carrera completa en la UFPS. Título obtenido el 8 de octubre de 2026.', loot: ['Ingeniero de Sistemas'] },
+    en: { short: 'Systems Engineering', name: 'Systems Engineering', org: 'Francisco de Paula Santander University', dates: '2018 to Oct 2026', body: 'The full degree at UFPS. Awarded on October 8, 2026.', loot: ['Systems Engineer'] } },
+  { id: 'free', kind: 'free', start: '2019-12-01',
+    es: { short: 'Freelance', name: 'Desarrollador freelance', org: 'Sistemas a la medida', dates: 'dic 2019 a dic 2021', body: 'Cinco sistemas completos para clientes: una farmacia en PHP, un sistema de seguridad social con Spring Boot y Angular, una tienda de calzado en Java Web, un inventario en Kotlin y un sistema de ventas para restaurante en Node.js.', loot: ['PHP', 'Spring Boot', 'Angular', 'Java Web', 'Kotlin', 'Node.js'] },
+    en: { short: 'Freelance', name: 'Freelance developer', org: 'Custom systems', dates: 'Dec 2019 to Dec 2021', body: 'Five complete systems for clients: a pharmacy in PHP, a social security system with Spring Boot and Angular, a shoe store in Java Web, an inventory app in Kotlin and a restaurant sales system in Node.js.', loot: ['PHP', 'Spring Boot', 'Angular', 'Java Web', 'Kotlin', 'Node.js'] } },
+  { id: 'tecn', kind: 'study', start: '2021-02-01',
+    es: { short: 'Tecnólogo en sistemas', name: 'Tecnólogo en análisis y desarrollo de sistemas de información', org: 'SENA', dates: '2021 a 2023', body: 'Formación tecnológica en desarrollo de software, completada en 2023.', loot: ['Tecnólogo SENA'] },
+    en: { short: 'Systems technologist', name: 'Technologist in information systems analysis and development', org: 'SENA', dates: '2021 to 2023', body: 'Technological training in software development, completed in 2023.', loot: ['SENA technologist'] } },
+  { id: 'pra', kind: 'work', start: '2022-09-19',
+    es: { short: 'Pragma', name: 'Pragma S.A.', org: 'Desarrollador backend Java, proveedor de Bancolombia', dates: 'sep 2022 a nov 2026',
+      body: ['Servicios en Java con Spring Boot, Spring Cloud y WebFlux, con arquitectura limpia, dentro de células de desarrollo con Scrum.', 'KIIRE (Grupo Éxito y Pagos Redeban): migración de una plataforma de onboarding a Spring Boot reactivo, con PostgreSQL en AWS RDS.', 'Plataforma de experiencia de candidatos con arquitectura hexagonal.', 'Pruebas unitarias con JUnit, Mockito y JaCoCo; código en Git y tableros en Azure DevOps.'],
+      loot: ['Java', 'Spring Boot', 'Spring Cloud', 'WebFlux', 'PostgreSQL', 'AWS RDS', 'JUnit', 'Mockito', 'JaCoCo', 'Azure DevOps', 'Scrum'] },
+    en: { short: 'Pragma', name: 'Pragma S.A.', org: 'Java backend developer, Bancolombia vendor', dates: 'Sep 2022 to Nov 2026',
+      body: ['Java services with Spring Boot, Spring Cloud and WebFlux, built with clean architecture inside Scrum development cells.', 'KIIRE (Grupo Éxito and Pagos Redeban): migrated an onboarding platform to reactive Spring Boot, with PostgreSQL on AWS RDS.', 'Candidate experience platform built with hexagonal architecture.', 'Unit tests with JUnit, Mockito and JaCoCo; code in Git and boards in Azure DevOps.'],
+      loot: ['Java', 'Spring Boot', 'Spring Cloud', 'WebFlux', 'PostgreSQL', 'AWS RDS', 'JUnit', 'Mockito', 'JaCoCo', 'Azure DevOps', 'Scrum'] } },
+  { id: 'bd', kind: 'study', start: '2026-04-14', ongoing: true,
+    es: { short: 'Bases de datos', name: 'Tecnología en implementación y gestión de bases de datos', org: 'SENA', dates: 'desde abr 2026', body: 'Formación en curso en el SENA, centrada en bases de datos.', loot: [] },
+    en: { short: 'Databases', name: 'Technology in database implementation and management', org: 'SENA', dates: 'since Apr 2026', body: 'Ongoing training at SENA, focused on databases.', loot: [] } },
+  { id: 'ban', kind: 'work', start: '2026-11-24', ongoing: true,
+    es: { short: 'Bancolombia', name: 'Bancolombia', org: 'Ingeniero de software', dates: 'desde 24 nov 2026', body: 'Desarrollo backend para los servicios del banco, ahora como parte de su equipo.', loot: [] },
+    en: { short: 'Bancolombia', name: 'Bancolombia', org: 'Software engineer', dates: 'since Nov 24, 2026', body: 'Backend development for the bank’s services, now as part of its own team.', loot: [] } },
 ];
 
 export const text = {
@@ -180,4 +196,59 @@ export const text = {
     updated: 'Updated',
     builtWith: 'Handmade with HTML and CSS, no frameworks and no JavaScript.',
   },
+};
+
+text.es.game = {
+  hudXp: 'XP', hudLevels: 'Niveles',
+  start: 'Empezar la aventura',
+  sheetTitle: 'Ficha del personaje',
+  sheet: [['Clase', 'Desarrollador backend Java'], ['Base', 'Cúcuta, Colombia'], ['Equipo', 'Bancolombia'], ['Idiomas', 'Español nativo, inglés B1 camino a C1']],
+  mapTitle: 'Mapa de niveles',
+  mapIntro: 'Toca un nivel o usa las flechas ← →. Visita los siete para abrir el cofre.',
+  introTitle: 'Listo para jugar',
+  introBody: 'Toca el nivel 1 para empezar a recorrer mi trayectoria.',
+  level: 'Nivel', loot: 'Botín', current: 'Nivel actual', next: 'Próximo nivel', ongoing: 'En curso',
+  chestName: 'Cofre final', chestSub: 'Trabajemos juntos',
+  chestLocked: 'Cofre cerrado. Visita los siete niveles para abrirlo.',
+  chestOpen: 'Trabajemos juntos', chestBody: 'Si quieres hablar de trabajo o de un proyecto, escríbeme por LinkedIn o revisa mi código en GitHub.',
+  invTitle: 'Inventario', invIntro: 'Las herramientas que uso a diario.',
+  badgesTitle: 'Logros',
+  badges: [
+    { icon: 'cloud', name: 'AWS Certified Cloud Practitioner', note: 'Certificación obtenida' },
+    { icon: 'gem', name: 'Ingeniero de Sistemas', note: 'UFPS, octubre de 2026' },
+    { icon: 'star', name: 'Cinco sistemas entregados', note: 'Freelance, 2019 a 2021' },
+    { icon: 'chip', name: 'De proveedor a Bancolombia', note: 'Noviembre de 2026' },
+    { icon: 'coin', name: 'DevTalk publicado', note: 'IA que corre en el navegador' },
+    { icon: 'lock', name: 'Inglés C1', note: 'En progreso', locked: true },
+  ],
+  missionsTitle: 'Misiones',
+  coursesLink: 'Ver los certificados',
+  builtWith: 'Hecho a mano con HTML, CSS y un poco de JavaScript.',
+};
+text.en.game = {
+  hudXp: 'XP', hudLevels: 'Levels',
+  start: 'Start the adventure',
+  sheetTitle: 'Character sheet',
+  sheet: [['Class', 'Java backend developer'], ['Base', 'Cúcuta, Colombia'], ['Team', 'Bancolombia'], ['Languages', 'Spanish native, English B1 on the way to C1']],
+  mapTitle: 'Level map',
+  mapIntro: 'Tap a level or use the ← → arrows. Visit all seven to open the chest.',
+  introTitle: 'Ready to play',
+  introBody: 'Tap level 1 to start walking through my path.',
+  level: 'Level', loot: 'Loot', current: 'Current level', next: 'Next level', ongoing: 'In progress',
+  chestName: 'Final chest', chestSub: 'Let’s work together',
+  chestLocked: 'The chest is locked. Visit all seven levels to open it.',
+  chestOpen: 'Let’s work together', chestBody: 'If you want to talk about a job or a project, message me on LinkedIn or browse my code on GitHub.',
+  invTitle: 'Inventory', invIntro: 'The tools I use every day.',
+  badgesTitle: 'Achievements',
+  badges: [
+    { icon: 'cloud', name: 'AWS Certified Cloud Practitioner', note: 'Certification earned' },
+    { icon: 'gem', name: 'Systems Engineer', note: 'UFPS, October 2026' },
+    { icon: 'star', name: 'Five systems delivered', note: 'Freelance, 2019 to 2021' },
+    { icon: 'chip', name: 'From vendor to Bancolombia', note: 'November 2026' },
+    { icon: 'coin', name: 'DevTalk published', note: 'AI that runs in the browser' },
+    { icon: 'lock', name: 'English C1', note: 'In progress', locked: true },
+  ],
+  missionsTitle: 'Missions',
+  coursesLink: 'See the certificates',
+  builtWith: 'Handmade with HTML, CSS and a little JavaScript.',
 };

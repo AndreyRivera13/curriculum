@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="https://andreyrivera13.github.io/curriculum/"><img src="assets/preview.png" alt="Vista previa de la página del currículum" width="720"></a>
+  <a href="https://andreyrivera13.github.io/curriculum/"><img src="assets/preview.png" alt="Vista previa del currículum como juego: personaje y mapa de niveles" width="720"></a>
 </p>
 
 ## Sobre mí
@@ -85,7 +85,7 @@ gantt
 <details>
 <summary>Sobre este repositorio</summary>
 
-La página es HTML y CSS puros, sin frameworks ni JavaScript. Todo el contenido (español e inglés) está en `src/content.mjs` y el diseño en `src/styles.css`.
+La página es un juego: recorres mi trayectoria como un mapa de niveles (toca un nivel o usa las flechas), ganas XP y al visitar los siete se abre el cofre con mi contacto. Es HTML y CSS con un poco de JavaScript (`src/game.js`), sin frameworks. Sin JavaScript igual se lee todo el contenido. Todo el texto (español e inglés) está en `src/content.mjs` y el diseño en `src/styles.css`.
 
 ```bash
 node scripts/build.mjs
@@ -98,6 +98,6 @@ google-chrome --headless=new --no-pdf-header-footer --print-to-pdf=Brayam-Oliver
 google-chrome --headless=new --no-pdf-header-footer --print-to-pdf=Brayam-Oliveros-CV-en.pdf en/index.html
 ```
 
-En `site` de `src/content.mjs` puedes poner `email` y `photo`; ambos están vacíos por defecto. Las fuentes Onest y Bricolage Grotesque van incluidas con su licencia OFL en `assets/fonts`.
+En `site` de `src/content.mjs` puedes poner `email` y `photo`; ambos están vacíos por defecto. Las fuentes Onest y Pixelify Sans van incluidas con su licencia OFL en `assets/fonts`.
 
 </details>
