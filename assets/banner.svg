@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" role="img" aria-label="Brayam Andrey Oliveros Rivera, desarrollador backend Java">
+  <rect width="1280" height="320" fill="#10151A"/>
+  <g stroke="#26303A" stroke-width="1">
+    <path d="M700 40V280M780 40V280M860 40V280M940 40V280M1020 40V280M1100 40V280M1180 40V280"/>
+  </g>
+  <g font-family="system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="64" y="132" font-size="58" font-weight="800" fill="#E9EDF0" letter-spacing="-1.5">Brayam Andrey</text>
+    <text x="64" y="196" font-size="58" font-weight="800" fill="#E9EDF0" letter-spacing="-1.5">Oliveros Rivera</text>
+    <text x="66" y="244" font-size="24" font-weight="600" fill="#8499FF">Desarrollador backend Java</text>
+    <text x="66" y="276" font-size="18" fill="#9DA8B1">Spring Boot · WebFlux · Arquitectura limpia · AWS</text>
+  </g>
+  <g>
+    <rect x="700" y="62" width="130" height="14" rx="7" fill="#4FCDB4"/>
+    <rect x="780" y="94" width="440" height="14" rx="7" fill="#4FCDB4"/>
+    <rect x="740" y="126" width="230" height="14" rx="7" fill="#EAAE4E"/>
+    <rect x="860" y="158" width="320" height="14" rx="7" fill="#8499FF"/>
+    <rect x="1130" y="190" width="120" height="14" rx="7" fill="#4FCDB4"/>
+    <rect x="1180" y="222" width="70" height="14" rx="7" fill="#8499FF"/>
+  </g>
+</svg>
